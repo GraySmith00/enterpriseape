@@ -31,6 +31,10 @@
       <%= f.label :salesperson %><br>
       <%= f.text_field :salesperson, class: 'form-control' %>
     </div>
+    <div class="field form-group">
+      <%= f.label "Status" %><br>
+      <%= f.select(:status_type, options_for_select([['PAID', 'PAID'], ['PENDING', 'PENDING']]), { include_blank: true}) %>
+    </div>
     <div class="actions form-group">
       <%= f.submit class: 'btn btn-success' %>
     </div>
