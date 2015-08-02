@@ -10,32 +10,7 @@
   
   <div class="containter container-fluid">
     
-    <ul class="nav nav-tabs">  
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "About", welcome_about_path %></li>
-      <li><%= link_to "Contact", welcome_contact_path %></li>
-      <li><%= link_to "Features", welcome_features_path %></li>
-      <li><%= link_to "FAQ", welcome_faq_path %></li>
-      <li><%= link_to "Invoices", invoices_path %></li>
-      
-      <% if current_user %>
-      <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-      <div class="btn-group pull-right right-nav">
-        <button type="button" class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
-          <span class="caret"></span>
-          <span>Admin</span>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-          <li><%= link_to "Invoices", invoices_path %></li>
-          <li><%= link_to "Employees", employees_path %></li>
-          <li><%= link_to "Companies", companies_path %></li>
-        </ul>
-      </div>
-      <% else %>
-      <li><%= link_to "Sign Up", new_user_registration_path %></li>
-      <li><%= link_to "Login", new_user_session_path %></li>
-      <% end %>
-    </ul>
+    <%= render 'layouts/navbar_new' %>
     
     <% if flash[:notice] %>
       <div class="alert alert-success">
