@@ -1,3 +1,7 @@
 class Invoice < ActiveRecord::Base
-  validates :date, :company, :tax, :salesperson, :status_type, presence: true
+  
+  belongs_to :employee
+  
+#   validates :date, :company, :tax, :employee_id, :status_type, presence: true
+  
 end
