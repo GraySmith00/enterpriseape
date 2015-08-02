@@ -1,29 +1,37 @@
-<%= form_for(@employee) do |f| %>
-  <% if @employee.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="well">
 
-      <ul>
-      <% @employee.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <%= form_for(@employee) do |f| %>
+        <% if @employee.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+            <ul>
+            <% @employee.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field form-group">
+          <%= f.label :name %><br>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+        <div class="field form-group">
+          <%= f.label :phone %><br>
+          <%= f.text_field :phone, class: 'form-control' %>
+        </div>
+        <div class="field form-group">
+          <%= f.label :job_type %><br>
+          <%= f.text_field :job_type, class: 'form-control' %>
+        </div>
+        <div class="actions form-group">
+          <%= f.submit class: 'btn btn-primary' %>
+        </div>
       <% end %>
-      </ul>
+      
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :job_type %><br>
-    <%= f.text_field :job_type %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
